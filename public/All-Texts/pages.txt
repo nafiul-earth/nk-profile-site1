@@ -9,16 +9,21 @@ Explore my portfolio of designs, videos, and web projects that connect creativit
 ABOUT PAGE:
 
 - Passion Fuels Purpose! 
-- Hi, I'm CodeBucks, a web developer and UI/UX designer with a passion for creating beautiful, functional, 
-and user-centered digital experiences. With 4 years of experience in the field. I am always looking for 
-new and innovative ways to bring my clients' visions to life.
+- Hi, I'm Nafiul, a graphic designer, AI content creator, and developer with a passion for transforming
+ creative ideas into meaningful digital experiences. With over 4 years of experience, I specialize in combining design thinking,
+ AI storytelling, and web development to build content that’s visually engaging and technically sound.
 
-- I believe that design is about more than just making things look pretty – it's about solving problems and 
-creating intuitive, enjoyable experiences for users. 
+- From creating YouTube videos powered by tools like MidJourney, Runway, and Heygen,
+ to designing brand visuals and responsive web layouts—I love working across mediums to bring stories to life.
 
-- Whether I'm working on a website, mobile app, or 
-other digital product, I bring my commitment to design excellence and user-centered thinking to 
-every project I work on. I look forward to the opportunity to bring my skills and passion to your next project.
+- I also have extensive experience in designing logos, thumbnails, and promotional materials using Canva, 
+Adobe Photoshop, and Illustrator. These assets help build strong visual identities that complement the 
+stories I tell through film and digital content.
+
+- For me, design and technology go hand in hand. Whether I’m working on a digital brand, a short film, or a web application, 
+I focus on crafting experiences that are not only beautiful but also impactful and easy to use.
+
+- I look forward to every opportunity that allows me to merge creativity, code, and content—and I’m excited to bring that energy to your next project.
 
 --------------------------------------------------------------
 
