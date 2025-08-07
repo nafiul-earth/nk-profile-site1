@@ -37,7 +37,7 @@ export default function Home() {
                 animate={{opacity:1, y:0}}
                 transition={{duration:0.5, delay:0.2}}
               >
-                Turning Vision Into Reality With Code And Design.
+                Turning Ideas Into Impact With Design, Code & AI Creativity.
               </MotionText>
               <MotionText 
                 className='my-4 text-base font-medium md:text-sm sm:text-xs'
@@ -45,8 +45,8 @@ export default function Home() {
                 animate={{opacity:1, y:0}}
                 transition={{duration:0.5, delay:0.4}}
               >
-                As a skilled full-stack developer, I am dedicated to turning ideas into innovative web applications. 
-                Explore my latest projects and articles, showcasing my expertise in React.js and web development.
+                As a creative technologist, I blend graphic design, AI-powered content creation, and web development to bring powerful ideas to life. From storytelling through visuals to building functional web experiences, I use tools like MidJourney, Final Cut Pro, Canva, and JavaScript to craft engaging, high-impact work.
+                Explore my portfolio of designs, videos, and web projects that connect creativity with technology.
               </MotionText>
               <div className='flex items-center self-start mt-2 lg:self-center'>
                 <Link href="/Nafiul Islam CV 2025.pdf" target={'_blank'}
