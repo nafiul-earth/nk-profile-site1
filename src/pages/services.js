@@ -30,7 +30,7 @@ const Services = () => {
             <h2 className='text-4xl font-bold sm:text-2xl'>
               Let&apos;s Create an <span className='text-sun italic'>Amazing Project</span> Together!
             </h2>
-            <PillButton href='#contact' label='Contact Us Now' />
+            <PillButton href='#contact' label='Contact Me Now' />
           </div>
         </Layout>
 

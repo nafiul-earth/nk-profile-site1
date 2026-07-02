@@ -88,7 +88,7 @@ const ContactForm = ({ onDark = true }) => {
         )}
         {status === 'error' && (
           <p className='text-sm font-semibold text-red-400'>
-            Something went wrong. Email me at {site.email}
+            Something went wrong. Please message me through LinkedIn or Upwork.
           </p>
         )}
       </div>

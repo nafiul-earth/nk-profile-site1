@@ -49,34 +49,25 @@ const Footer = () => {
           <div>
             <h3 className='text-sun font-semibold mb-4'>Contact</h3>
             <ul className='flex flex-col gap-2.5 text-sm font-medium text-white/80'>
-              <li><a href={`tel:${site.phone.replace(/\s/g, '')}`} className='hover:text-sun transition-colors'>{site.phone}</a></li>
-              <li><a href={`mailto:${site.email}`} className='hover:text-sun transition-colors'>{site.email}</a></li>
+              {site.contactLinks.map((link) => (
+                <li key={link.name}>
+                  <a href={link.url} target='_blank' rel='noopener noreferrer' className='hover:text-sun transition-colors'>{link.label}</a>
+                </li>
+              ))}
               <li>{site.location}</li>
             </ul>
           </div>
 
           <div>
-            <h3 className='text-sun font-semibold mb-4'>Get the latest information</h3>
-            <form
-              action={`mailto:${site.email}?subject=Newsletter signup`}
-              method='post'
-              encType='text/plain'
-              className='flex items-center bg-white rounded-lg p-1'
-            >
-              <input
-                type='email'
-                name='email'
-                required
-                placeholder='Email address'
-                className='w-full px-3 py-2 text-sm text-ink outline-none bg-transparent'
-              />
-              <button type='submit' aria-label='Subscribe'
-                className='w-9 h-9 shrink-0 bg-sun rounded-md flex items-center justify-center text-forest'>
-                <svg className='w-4 h-4' viewBox="0 0 24 24" fill="none">
-                  <path d="M3 12h18m-7-7 7 7-7 7" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" />
-                </svg>
-              </button>
-            </form>
+            <h3 className='text-sun font-semibold mb-4'>Find Me Online</h3>
+            <p className='text-sm font-medium text-white/70 mb-4'>
+              Message me through LinkedIn or Upwork for project questions, collaborations, or freelance availability.
+            </p>
+            <div className='flex flex-col items-start gap-3'>
+              {site.contactLinks.map((link) => (
+                <PillButton key={link.name} href={link.url} label={`Open ${link.name}`} onDark external />
+              ))}
+            </div>
           </div>
         </div>
       </div>

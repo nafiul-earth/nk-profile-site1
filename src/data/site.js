@@ -11,11 +11,13 @@ export const site = {
     "For me, design and technology go hand in hand. Whether I'm working on a digital brand, a short film, or a web application, I focus on crafting experiences that are not only beautiful but also impactful and easy to use.",
   ],
   location: 'Bangladesh',
-  email: 'earthkhan@gmail.com',
-  phone: '+880<TBP>',
   cvPath: '/Nafiul Islam CV 2025.pdf',
   // TODO(user): create a free Formspree form and replace this endpoint
   formspreeEndpoint: 'https://formspree.io/f/REPLACE_ME',
+  contactLinks: [
+    { name: 'LinkedIn', label: 'LinkedIn Profile', url: 'https://www.linkedin.com/in/nafiul-khan-608820265' },
+    { name: 'Upwork', label: 'Upwork Profile', url: 'https://www.upwork.com/freelancers/~010379ab94203f3f65?viewMode=1' },
+  ],
   socials: [
     { name: 'GitHub', url: 'https://github.com/nafiul-earth', icon: 'github' },
     { name: 'LinkedIn', url: 'https://www.linkedin.com/in/nafiul-khan-608820265', icon: 'linkedin' },
