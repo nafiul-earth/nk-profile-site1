@@ -10,9 +10,9 @@ export const site = {
     "From creating YouTube videos powered by tools like Midjourney, Runway, and HeyGen, to designing brand visuals and responsive web layouts — I love working across mediums to bring stories to life.",
     "For me, design and technology go hand in hand. Whether I'm working on a digital brand, a short film, or a web application, I focus on crafting experiences that are not only beautiful but also impactful and easy to use.",
   ],
-  location: 'Khulna, Bangladesh',
-  email: 'earthkhan01@gmail.com',
-  phone: '+880 1835 518786',
+  location: 'Bangladesh',
+  email: 'earthkhan@gmail.com',
+  phone: '+880<TBP>',
   cvPath: '/Nafiul Islam CV 2025.pdf',
   // TODO(user): create a free Formspree form and replace this endpoint
   formspreeEndpoint: 'https://formspree.io/f/REPLACE_ME',

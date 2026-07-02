@@ -33,7 +33,7 @@ NavBar (green pill bar, active link yellow-underlined, mobile hamburger), PillBu
 
 ## Data layer (`src/data/`)
 
-`site.js` (identity, email earthkhan01@gmail.com, phone +880183-5518786, Khulna BD, socials: GitHub nafiul-earth, LinkedIn nafiul-khan-608820265, Medium @earthkhan, X, YouTube channels; CV path; stats; Formspree endpoint), `services.js` (6: Graphic Design, AI Content Creation, Web Design, Web App Development, AI Automation, Video & YouTube Content — slug/icon/blurb/includes/industries/benefits), `projects.js` (AdMagic, Max Steel Knowledge Hub, youtube-clip-creator, Portfolio Site), `blogs.js`, `testimonials.js`, `pricing.js`, `faqs.js`, `journey.js` (Education: Diploma CSE Khulna City Polytechnic 2020–23, Creative IT Institute 2026–present, Cloud Institute Oct 2024; Work: Graphic Designer Intern Jun–Oct 2024, Max Steel co-founder, YouTube creator 7 channels).
+`site.js` (identity, email earthkhan@gmail.com, phone +88<TBP>, BD, socials: GitHub nafiul-earth, LinkedIn nafiul-khan-608820265, Medium @earthkhan, X, YouTube channels; CV path; stats; Formspree endpoint), `services.js` (6: Graphic Design, AI Content Creation, Web Design, Web App Development, AI Automation, Video & YouTube Content — slug/icon/blurb/includes/industries/benefits), `projects.js` (AdMagic, Max Steel Knowledge Hub, youtube-clip-creator, Portfolio Site), `blogs.js`, `testimonials.js`, `pricing.js`, `faqs.js`, `journey.js` (Education: Diploma CSE Khulna City Polytechnic 2020–23, Creative IT Institute 2026–present, Cloud Institute Oct 2024; Work: Graphic Designer Intern Jun–Oct 2024, Max Steel co-founder, YouTube creator 7 channels).
 
 Pages render exclusively from data files; detail pages use `getStaticPaths`/`getStaticProps` (fully static).
 
