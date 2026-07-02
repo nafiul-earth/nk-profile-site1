@@ -1,12 +1,13 @@
 import '@/styles/globals.css'
-import { Montserrat } from 'next/font/google'
+import { Plus_Jakarta_Sans } from 'next/font/google'
 import Head from 'next/head'
 import NavBar from '@/components/NavBar'
 import Footer from '@/components/Footer'
 
-const montserrat = Montserrat({
+const jakarta = Plus_Jakarta_Sans({
   subsets: ["latin"],
-  variable: "--font-mont",
+  weight: ["400", "500", "600", "700", "800"],
+  variable: "--font-jakarta",
 })
 
 export default function App({ Component, pageProps }) {
@@ -16,7 +17,7 @@ export default function App({ Component, pageProps }) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className={`${montserrat.variable} font-mont bg-light dark:bg-dark w-full min-h-screen`}>
+      <main className={`${jakarta.variable} font-sans bg-cream text-ink w-full min-h-screen`}>
         <NavBar />
         <Component {...pageProps} />
         <Footer />
