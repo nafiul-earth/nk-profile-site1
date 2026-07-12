@@ -23,6 +23,14 @@ export const lookbookCategories = [
 export const lookbook = [
   // ---- Real projects ----
   {
+    title: 'Custom Visual Metaphor Illustrations for Social Media',
+    category: 'AI Image Generation',
+    description: 'Eight hand-drawn-style concepts translating environmental and social issues into clear, memorable visual metaphors.',
+    image: '/images/projects/visual-metaphor-illustrations/cover.png',
+    href: '/projects/custom-visual-metaphor-illustrations',
+    date: '2026-07',
+  },
+  {
     title: 'AI-Powered Meta Ad Creative Campaign',
     category: 'AI Image Generation',
     description: 'A complete Facebook and Instagram product campaign with 12 static creatives and a short promotional video.',

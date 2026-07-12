@@ -1,6 +1,18 @@
 // img files are stand-ins from the old site — replace with real screenshots (see handoff note)
 export const projects = [
   {
+    slug: 'custom-visual-metaphor-illustrations',
+    title: 'Custom Visual Metaphor Illustrations',
+    type: 'Visual Storytelling',
+    tags: ['AI Illustration', 'Social Media', 'Campaign Design'],
+    summary:
+      'A reusable illustration system that turns complex environmental and social topics into simple, memorable visual metaphors with a consistent hand-drawn character and campaign style.',
+    img: '/images/projects/visual-metaphor-illustrations/cover.png',
+    link: '/projects/custom-visual-metaphor-illustrations',
+    github: null,
+    featured: true,
+  },
+  {
     slug: 'ai-powered-meta-ad-creative-campaign',
     title: 'AI-Powered Meta Ad Creative Campaign',
     type: 'Ad Creative',
