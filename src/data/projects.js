@@ -1,6 +1,18 @@
 // img files are stand-ins from the old site — replace with real screenshots (see handoff note)
 export const projects = [
   {
+    slug: 'ai-powered-meta-ad-creative-campaign',
+    title: 'AI-Powered Meta Ad Creative Campaign',
+    type: 'Ad Creative',
+    tags: ['Meta Ads', 'AI Imagery', 'Social Media'],
+    summary:
+      'A coordinated Facebook and Instagram campaign built from one product brief—combining product heroes, lifestyle scenes, benefit-led ads, promotional concepts, and video.',
+    img: '/images/projects/meta-ad-campaign/cover.jpg',
+    link: '/projects/ai-powered-meta-ad-creative-campaign',
+    github: null,
+    featured: true,
+  },
+  {
     slug: 'admagic',
     title: 'AdMagic — AI Ad Creative Tool',
     type: 'AI Tool',

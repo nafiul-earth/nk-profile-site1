@@ -23,6 +23,14 @@ export const lookbookCategories = [
 export const lookbook = [
   // ---- Real projects ----
   {
+    title: 'AI-Powered Meta Ad Creative Campaign',
+    category: 'AI Image Generation',
+    description: 'A complete Facebook and Instagram product campaign with 12 static creatives and a short promotional video.',
+    image: '/images/projects/meta-ad-campaign/cover.jpg',
+    href: '/projects/ai-powered-meta-ad-creative-campaign',
+    date: '2026-07',
+  },
+  {
     title: 'Personal Portfolio Website',
     category: 'Web Development',
     description: 'Design & build of this site with Next.js, Tailwind CSS, and Framer Motion.',

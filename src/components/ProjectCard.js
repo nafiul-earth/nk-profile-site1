@@ -17,8 +17,7 @@ const Tags = ({ project }) => (
 const ArrowLink = ({ href }) => (
   <Link
     href={href}
-    target='_blank'
-    rel='noopener noreferrer'
+    {...(href.startsWith('/') ? {} : { target: '_blank', rel: 'noopener noreferrer' })}
     className='w-11 h-11 shrink-0 rounded-full bg-ink text-accent flex items-center justify-center
     transition-transform duration-300 hover:rotate-45'
     aria-label='Open project'
@@ -30,6 +29,10 @@ const ArrowLink = ({ href }) => (
 )
 
 const ProjectCard = ({ project, wide = false }) => {
+  const externalProps = project.link.startsWith('/')
+    ? {}
+    : { target: '_blank', rel: 'noopener noreferrer' }
+
   return (
     <motion.article
       className={`w-full bg-paper rounded-2xl p-4 border border-ink/15 flex flex-col gap-4
@@ -39,7 +42,7 @@ const ProjectCard = ({ project, wide = false }) => {
       viewport={{ once: true }}
       transition={{ duration: 0.5 }}
     >
-      <Link href={project.link} target='_blank' rel='noopener noreferrer' className='w-full overflow-hidden rounded-xl'>
+      <Link href={project.link} {...externalProps} className='w-full overflow-hidden rounded-xl'>
         <MotionImage
           src={project.img}
           alt={project.title}

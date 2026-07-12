@@ -22,6 +22,9 @@ const PlaceholderCover = ({ category }) => (
 )
 
 const LookBookCard = ({ entry }) => {
+  const externalProps = entry.href?.startsWith('/')
+    ? {}
+    : { target: '_blank', rel: 'noopener noreferrer' }
   const cover = entry.placeholder ? (
     <PlaceholderCover category={entry.category} />
   ) : (
@@ -53,8 +56,7 @@ const LookBookCard = ({ entry }) => {
     return (
       <Link
         href={entry.href}
-        target='_blank'
-        rel='noopener noreferrer'
+        {...externalProps}
         className={`group block ${card} transition-colors hover:border-ink`}
       >
         {cover}
