@@ -8,7 +8,7 @@ import { services } from '@/data/services'
 import { site } from '@/data/site'
 
 const Check = () => (
-  <span className='w-6 h-6 shrink-0 rounded-full bg-sun text-forest flex items-center justify-center'>
+  <span className='w-6 h-6 shrink-0 rounded-full bg-accent text-ink flex items-center justify-center'>
     <svg className='w-3.5 h-3.5' viewBox="0 0 24 24" fill="none">
       <path d="M5 12l5 5L20 7" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
     </svg>
@@ -27,14 +27,14 @@ const ServiceDetails = ({ service }) => {
 
         <Layout className='pt-20 md:pt-12'>
           {/* Banner */}
-          <div className='w-full bg-forest rounded-3xl p-16 flex items-center justify-center gap-8 md:p-10'>
-            <span className='w-24 h-24 text-sun md:w-16 md:h-16'>{ServiceIcons[service.icon]}</span>
-            <h2 className='text-4xl font-bold text-white sm:text-2xl'>{service.name}</h2>
+          <div className='w-full bg-ink rounded-3xl p-16 flex items-center justify-center gap-8 md:p-10'>
+            <span className='w-24 h-24 text-accent md:w-16 md:h-16'>{ServiceIcons[service.icon]}</span>
+            <h2 className='font-display text-4xl font-bold tracking-tight text-paper sm:text-2xl'>{service.name}</h2>
           </div>
 
           {/* About */}
           <div className='mt-16 md:mt-10'>
-            <h3 className='text-2xl font-bold mb-4'>About <span className='text-sun italic'>{service.name}</span> Services</h3>
+            <h3 className='font-display text-2xl font-bold mb-4'>About <span className='underline decoration-accent decoration-2 underline-offset-4'>{service.name}</span> Services</h3>
             <p className='text-base font-medium text-ink/75 max-w-4xl'>{service.about}</p>
           </div>
 
@@ -59,8 +59,8 @@ const ServiceDetails = ({ service }) => {
             </p>
             <div className='grid grid-cols-4 gap-6 lg:grid-cols-2 sm:grid-cols-1'>
               {service.industries.map((ind, i) => (
-                <div key={ind} className='bg-white rounded-2xl p-6 border border-ink/5 shadow-sm flex flex-col gap-3'>
-                  <span className='w-10 h-10 rounded-full bg-forest text-sun flex items-center justify-center text-sm font-bold'>
+                <div key={ind} className='bg-paper rounded-2xl p-6 border border-ink/15 flex flex-col gap-3'>
+                  <span className='w-10 h-10 rounded-full bg-ink text-accent flex items-center justify-center text-sm font-bold'>
                     {String(i + 1).padStart(2, '0')}
                   </span>
                   <p className='font-bold text-ink'>{ind}</p>
@@ -84,8 +84,8 @@ const ServiceDetails = ({ service }) => {
 
           {/* CTA */}
           <div className='flex flex-col items-center text-center gap-6 mt-24 md:mt-16'>
-            <h2 className='text-4xl font-bold sm:text-2xl'>
-              Let&apos;s Create an <span className='text-sun italic'>Amazing Project</span> Together!
+            <h2 className='font-display text-4xl font-bold tracking-tight sm:text-2xl'>
+              Let&apos;s Create an <span className='underline decoration-accent decoration-[3px] underline-offset-8'>Amazing Project</span> Together!
             </h2>
             <PillButton href='#contact' label='Contact Me Now' />
           </div>

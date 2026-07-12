@@ -2,16 +2,16 @@ import { useState } from 'react'
 import { site } from '@/data/site'
 import { services } from '@/data/services'
 
-const budgetRanges = ['Under $100', '$100 - $250', '$250 - $500', '$500 - $1,000', '$1,000+']
+export const budgetRanges = ['Under $100', '$100 - $250', '$250 - $500', '$500 - $1,000', '$1,000+']
 
 const ContactForm = ({ onDark = true }) => {
   const [status, setStatus] = useState('idle')
 
   const field = `w-full rounded-lg px-4 py-3 text-sm font-medium outline-none transition-colors
   ${onDark
-    ? 'bg-white/10 border border-white/20 text-white placeholder:text-white/50 focus:border-sun'
-    : 'bg-white border border-ink/10 text-ink placeholder:text-ink/40 focus:border-sun'}`
-  const label = `block mb-2 text-sm font-semibold ${onDark ? 'text-white' : 'text-ink'}`
+    ? 'bg-paper/10 border border-paper/20 text-paper placeholder:text-paper/50 focus:border-accent'
+    : 'bg-paper border border-ink/10 text-ink placeholder:text-ink/40 focus:border-accent'}`
+  const label = `block mb-2 text-sm font-semibold ${onDark ? 'text-paper' : 'text-ink'}`
 
   const handleSubmit = async (e) => {
     e.preventDefault()
@@ -71,10 +71,10 @@ const ContactForm = ({ onDark = true }) => {
           type='submit'
           disabled={status === 'sending'}
           className='group inline-flex items-center gap-2 rounded-full p-1 pl-6 text-base font-semibold
-          bg-forest text-white border-2 border-sun hover:bg-forest-deep transition-colors disabled:opacity-60'
+          bg-accent text-ink border border-accent hover:bg-transparent hover:text-paper transition-colors disabled:opacity-60'
         >
           <span className='py-1.5'>{status === 'sending' ? 'Sending...' : 'Submit'}</span>
-          <span className='w-9 h-9 flex items-center justify-center bg-sun rounded-full text-forest
+          <span className='w-9 h-9 flex items-center justify-center bg-accent rounded-full text-ink
           transition-transform duration-300 group-hover:rotate-45'>
             <svg className='w-4 h-4' viewBox="0 0 24 24" fill="none">
               <path d="M7 17 17 7M9 7h8v8" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" />
@@ -82,7 +82,7 @@ const ContactForm = ({ onDark = true }) => {
           </span>
         </button>
         {status === 'success' && (
-          <p className={`text-sm font-semibold ${onDark ? 'text-sun' : 'text-forest'}`}>
+          <p className={`text-sm font-semibold ${onDark ? 'text-accent' : 'text-ink'}`}>
             Thanks — I&apos;ll reply soon!
           </p>
         )}

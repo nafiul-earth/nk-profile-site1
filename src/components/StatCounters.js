@@ -27,11 +27,11 @@ const StatCounters = ({ stats, onDark = false }) => {
     <div className='flex items-start gap-12 lg:gap-8 sm:flex-col sm:gap-4'>
       {stats.map((stat) => (
         <div key={stat.label}>
-          <p className={`text-4xl font-extrabold sm:text-3xl ${onDark ? 'text-sun' : 'text-ink'}`}>
+          <p className={`text-4xl font-extrabold sm:text-3xl ${onDark ? 'text-accent' : 'text-ink'}`}>
             <AnimatedNumber value={stat.value} />
             {stat.suffix}
           </p>
-          <p className={`text-sm font-medium mt-1 ${onDark ? 'text-white/80' : 'text-ink/70'}`}>{stat.label}</p>
+          <p className={`text-sm font-medium mt-1 ${onDark ? 'text-paper/80' : 'text-ink/70'}`}>{stat.label}</p>
         </div>
       ))}
     </div>

@@ -35,7 +35,7 @@ export const SocialLinks = ({ socials, className = '' }) => (
         target='_blank'
         rel='noopener noreferrer'
         aria-label={s.name}
-        className='w-10 h-10 rounded-full bg-sun text-forest flex items-center justify-center p-2.5
+        className='w-10 h-10 rounded-full bg-accent text-ink flex items-center justify-center p-2.5
         transition-transform duration-300 hover:-translate-y-1'
       >
         {SocialIcons[s.icon]}

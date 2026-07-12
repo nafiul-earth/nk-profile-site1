@@ -9,14 +9,13 @@ module.exports = {
     extend: {
       fontFamily: {
         sans: ['var(--font-jakarta)', 'sans-serif'],
+        display: ['var(--font-grotesk)', 'sans-serif'],
       },
       colors: {
-        forest: '#2F4A32',
-        'forest-deep': '#263D29',
-        sun: '#FFB400',
-        'sun-soft': '#FFC845',
-        cream: '#FAF7F0',
-        ink: '#1E2320',
+        paper: '#F5F1EA',
+        ink: '#17140F',
+        accent: '#F8C822',
+        muted: '#8A857C',
       },
       animation: {
         'spin-slow': 'spin 8s linear infinite',

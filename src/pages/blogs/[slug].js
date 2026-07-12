@@ -19,9 +19,9 @@ const BlogPost = ({ blog }) => {
 
         <Layout className='pt-20 md:pt-12'>
           <article className='w-full max-w-3xl mx-auto flex flex-col gap-6'>
-            <div className='flex items-center gap-2'>
-              <span className='bg-sun text-ink text-xs font-semibold px-3 py-1.5 rounded-full'>{blog.category}</span>
-              <span className='bg-sun text-ink text-xs font-semibold px-3 py-1.5 rounded-full'>{blog.date}</span>
+            <div className='flex items-center gap-3'>
+              <span className='border border-ink/20 text-ink text-xs font-semibold px-3 py-1.5 rounded-full'>{blog.category}</span>
+              <span className='text-xs font-semibold text-muted'>{blog.date}</span>
             </div>
             <Image
               src={blog.img}

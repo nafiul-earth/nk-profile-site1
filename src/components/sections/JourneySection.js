@@ -28,16 +28,16 @@ const JourneySection = () => {
         />
         <div className='grid grid-cols-2 gap-8 w-full md:grid-cols-1'>
           {columns.map((col) => (
-            <div key={col.heading} className='bg-white rounded-2xl p-8 border border-ink/5 shadow-sm sm:p-6'>
+            <div key={col.heading} className='bg-paper rounded-2xl p-8 border border-ink/15 sm:p-6'>
               <div className='flex items-center gap-3 pb-5 border-b border-ink/10'>
-                <span className='w-12 h-12 rounded-full bg-sun flex items-center justify-center text-forest'>
+                <span className='w-12 h-12 rounded-full bg-accent flex items-center justify-center text-ink'>
                   <svg className='w-6 h-6' viewBox="0 0 24 24" fill="currentColor"><path d={col.icon} /></svg>
                 </span>
                 <h3 className='text-xl font-bold'>{col.heading}</h3>
               </div>
               <ul className='flex flex-col gap-6 pt-6'>
                 {col.items.map((item) => (
-                  <li key={item.title} className='border-l-2 border-sun pl-4'>
+                  <li key={item.title} className='border-l-2 border-accent pl-4'>
                     <p className='text-sm font-medium text-ink/60'>{item.years}</p>
                     <p className='text-lg font-bold text-ink'>{item.place}</p>
                     <p className='text-sm font-medium text-ink/70'>{item.title}</p>

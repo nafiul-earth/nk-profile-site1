@@ -7,7 +7,7 @@ const MotionImage = motion(Image)
 const Tags = ({ project }) => (
   <div className='flex flex-wrap items-center gap-2'>
     {[project.type, ...project.tags].map((tag) => (
-      <span key={tag} className='bg-sun text-ink text-xs font-semibold px-3 py-1.5 rounded-full'>
+      <span key={tag} className='border border-ink/20 text-ink text-xs font-semibold px-3 py-1.5 rounded-full'>
         {tag}
       </span>
     ))}
@@ -19,7 +19,7 @@ const ArrowLink = ({ href }) => (
     href={href}
     target='_blank'
     rel='noopener noreferrer'
-    className='w-11 h-11 shrink-0 rounded-full bg-forest text-sun flex items-center justify-center
+    className='w-11 h-11 shrink-0 rounded-full bg-ink text-accent flex items-center justify-center
     transition-transform duration-300 hover:rotate-45'
     aria-label='Open project'
   >
@@ -32,7 +32,7 @@ const ArrowLink = ({ href }) => (
 const ProjectCard = ({ project, wide = false }) => {
   return (
     <motion.article
-      className={`w-full bg-white rounded-2xl p-4 border border-ink/5 shadow-sm flex flex-col gap-4
+      className={`w-full bg-paper rounded-2xl p-4 border border-ink/15 flex flex-col gap-4
       ${wide ? 'lg:col-span-1 col-span-2' : ''}`}
       initial={{ opacity: 0, y: 40 }}
       whileInView={{ opacity: 1, y: 0 }}

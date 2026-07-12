@@ -31,7 +31,7 @@ const About = () => {
           <div className='flex items-start gap-16 lg:flex-col lg:gap-10'>
             <div className='w-2/5 flex justify-center lg:w-full'>
               <div className='relative w-80 h-80 sm:w-64 sm:h-64'>
-                <div className='absolute inset-0 bg-sun rounded-full overflow-hidden'>
+                <div className='absolute inset-0 bg-accent rounded-full overflow-hidden'>
                   <Image
                     src={profilePic}
                     alt={site.name}
@@ -43,8 +43,8 @@ const About = () => {
                 {site.skillTags.slice(0, 4).map((tag, i) => (
                   <span
                     key={tag}
-                    className={`absolute text-xs font-semibold px-3 py-1.5 rounded-full shadow-md
-                    ${i % 2 === 0 ? 'bg-forest text-white' : 'bg-white text-forest border border-ink/10'}`}
+                    className={`absolute text-xs font-semibold px-3 py-1.5 rounded-full
+                    ${i % 2 === 0 ? 'bg-ink text-paper' : 'bg-paper text-ink border border-ink/10'}`}
                     style={{
                       left: ['-8%', '55%', '-2%', '60%'][i],
                       top: ['20%', '5%', '78%', '85%'][i],

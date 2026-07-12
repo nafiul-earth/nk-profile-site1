@@ -33,12 +33,4 @@ export const site = {
   ],
   marquee: ['Graphic Design', 'AI Content', 'Web Design', 'Automation', 'Video Editing'],
   skillTags: ['Graphic Design', 'AI Content', 'Web Design', 'YouTube', 'Automation', 'Branding'],
-  tools: [
-    { name: 'Photoshop', level: 90, icon: 'photoshop' },
-    { name: 'Illustrator', level: 85, icon: 'illustrator' },
-    { name: 'Figma', level: 88, icon: 'figma' },
-    { name: 'Canva', level: 95, icon: 'canva' },
-    { name: 'Midjourney', level: 92, icon: 'midjourney' },
-    { name: 'DaVinci Resolve', level: 80, icon: 'davinci' },
-  ],
 }

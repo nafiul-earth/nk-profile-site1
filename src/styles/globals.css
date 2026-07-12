@@ -9,7 +9,7 @@
 }
 
 body {
-  @apply bg-cream text-ink font-sans;
+  @apply bg-paper text-ink font-sans;
 }
 
 /* Custom scrollbar */
@@ -22,12 +22,12 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #2f4a32;
+  background: #17140f;
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #263d29;
+  background: #35302a;
 }
 
 /* Smooth scrolling */

@@ -1,58 +1,62 @@
-import { motion } from 'framer-motion'
+import { motion, useReducedMotion } from 'framer-motion'
 import Layout from '../Layout'
 import SectionHeading from '../SectionHeading'
-import { site } from '@/data/site'
+import { toolsRowOne, toolsRowTwo } from '@/data/tools'
 
-const toolColors = {
-  photoshop: '#31A8FF',
-  illustrator: '#FF9A00',
-  figma: '#A259FF',
-  canva: '#00C4CC',
-  midjourney: '#1E2320',
-  davinci: '#FF4E6B',
-}
-const toolInitials = {
-  photoshop: 'Ps',
-  illustrator: 'Ai',
-  figma: 'Fg',
-  canva: 'Cv',
-  midjourney: 'Mj',
-  davinci: 'DR',
+const Tile = ({ tool }) => (
+  <div className='flex items-center gap-3 shrink-0 rounded-2xl bg-paper border border-ink/10 px-5 py-3 whitespace-nowrap'>
+    <img
+      src={tool.src}
+      alt=''
+      loading='lazy'
+      width={24}
+      height={24}
+      className='w-6 h-6 object-contain shrink-0'
+    />
+    <span className='text-sm font-semibold text-ink'>{tool.name}</span>
+  </div>
+)
+
+const MarqueeRow = ({ tools, reverse = false, reduceMotion }) => {
+  const row = tools.map((tool) => <Tile key={tool.name} tool={tool} />)
+  return (
+    <div className='w-full overflow-hidden'>
+      <motion.div
+        className='flex items-center gap-4 w-max'
+        animate={reduceMotion ? undefined : { x: reverse ? ['-50%', '0%'] : ['0%', '-50%'] }}
+        transition={{ duration: 32, ease: 'linear', repeat: Infinity }}
+      >
+        {row}
+        {row}
+      </motion.div>
+    </div>
+  )
 }
 
 const ToolsSection = () => {
+  const reduceMotion = useReducedMotion()
   return (
-    <Layout className='pt-24 md:pt-16'>
-      <section className='w-full flex flex-col items-center'>
-        <SectionHeading
-          eyebrow='My Favorite Tools'
-          accent='Exploring the Tools'
-          accentFirst
-          title='Behind My Designs'
-          center
-        />
-        <div className='grid grid-cols-6 gap-6 w-full lg:grid-cols-3 sm:grid-cols-2'>
-          {site.tools.map((tool) => (
-            <motion.div
-              key={tool.name}
-              className='flex flex-col items-center gap-3 bg-white rounded-full py-8 px-4 border border-ink/5 shadow-sm'
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-            >
-              <span
-                className='w-14 h-14 rounded-2xl flex items-center justify-center text-white font-bold text-lg'
-                style={{ backgroundColor: toolColors[tool.icon] }}
-              >
-                {toolInitials[tool.icon]}
-              </span>
-              <span className='text-2xl font-extrabold text-ink'>{tool.level}%</span>
-              <span className='text-sm font-medium text-ink/70 text-center'>{tool.name}</span>
-            </motion.div>
-          ))}
-        </div>
-      </section>
-    </Layout>
+    <>
+      <Layout className='pt-24 md:pt-16'>
+        <section className='w-full flex flex-col items-center'>
+          <SectionHeading
+            eyebrow='My Favorite Tools'
+            accent='Exploring the Tools'
+            accentFirst
+            title='Behind My Designs'
+            center
+          />
+        </section>
+      </Layout>
+
+      <div className='w-full mt-8 md:mt-6 bg-ink py-12 md:py-8 flex flex-col gap-4 overflow-hidden'>
+        <MarqueeRow tools={toolsRowOne} reduceMotion={reduceMotion} />
+        <MarqueeRow tools={toolsRowTwo} reverse reduceMotion={reduceMotion} />
+        <p className='text-center text-xs font-medium text-paper/40 pt-2'>
+          Logos via Simple Icons — shown to indicate tools used, not an affiliation with or endorsement from the listed brands.
+        </p>
+      </div>
+    </>
   )
 }
 

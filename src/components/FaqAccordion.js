@@ -12,7 +12,7 @@ const FaqAccordion = ({ faqs }) => {
           <div
             key={faq.q}
             className={`rounded-2xl overflow-hidden transition-colors duration-300
-            ${isOpen ? 'bg-sun text-ink' : 'bg-white/10 text-white'}`}
+            ${isOpen ? 'bg-accent text-ink' : 'bg-paper/10 text-paper'}`}
           >
             <button
               type='button'

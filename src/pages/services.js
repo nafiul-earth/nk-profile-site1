@@ -27,8 +27,8 @@ const Services = () => {
 
         <Layout className='pt-24 md:pt-16'>
           <div className='flex flex-col items-center text-center gap-6'>
-            <h2 className='text-4xl font-bold sm:text-2xl'>
-              Let&apos;s Create an <span className='text-sun italic'>Amazing Project</span> Together!
+            <h2 className='font-display text-4xl font-bold tracking-tight sm:text-2xl'>
+              Let&apos;s Create an <span className='underline decoration-accent decoration-[3px] underline-offset-8'>Amazing Project</span> Together!
             </h2>
             <PillButton href='#contact' label='Contact Me Now' />
           </div>
