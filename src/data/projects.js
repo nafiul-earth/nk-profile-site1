@@ -4,6 +4,7 @@ export const projects = [
     slug: 'custom-visual-metaphor-illustrations',
     title: 'Custom Visual Metaphor Illustrations',
     type: 'Visual Storytelling',
+    category: 'AI Image Generation',
     tags: ['AI Illustration', 'Social Media', 'Campaign Design'],
     summary:
       'A reusable illustration system that turns complex environmental and social topics into simple, memorable visual metaphors with a consistent hand-drawn character and campaign style.',
@@ -16,6 +17,7 @@ export const projects = [
     slug: 'ai-powered-meta-ad-creative-campaign',
     title: 'AI-Powered Meta Ad Creative Campaign',
     type: 'Ad Creative',
+    category: 'AI Image Generation',
     tags: ['Meta Ads', 'AI Imagery', 'Social Media'],
     summary:
       'A coordinated Facebook and Instagram campaign built from one product brief—combining product heroes, lifestyle scenes, benefit-led ads, promotional concepts, and video.',
@@ -28,6 +30,7 @@ export const projects = [
     slug: 'admagic',
     title: 'AdMagic — AI Ad Creative Tool',
     type: 'AI Tool',
+    category: 'AI Image Generation',
     tags: ['AI', 'Web App', 'Gemini API'],
     summary:
       'AI-driven ad creative tool that uses Gemini 2.5 Flash to automate visual asset production from a single product photo — an AI-integrated design workflow from upload to export.',
@@ -40,6 +43,7 @@ export const projects = [
     slug: 'max-steel-knowledge-hub',
     title: 'Max Steel Knowledge Hub',
     type: 'Content Studio',
+    category: 'AI Content Creation',
     tags: ['Web Design', 'Branding', 'AI Content'],
     summary:
       'Co-designed and co-run a content studio site providing graphic design services and AI-assisted blog posts and technical writing for founders and creators. Card-based layout with a consistent visual identity across all pages.',
@@ -53,6 +57,7 @@ export const projects = [
     slug: 'youtube-clip-creator',
     title: 'YouTube Clip Creator',
     type: 'Automation Tool',
+    category: 'Video & YouTube',
     tags: ['Automation', 'Python', 'Media'],
     summary:
       'YouTube content automation tool demonstrating back-end logic, media handling, and workflow scripting — part of the pipeline behind my own channels.',
@@ -65,6 +70,7 @@ export const projects = [
     slug: 'portfolio-site',
     title: 'Personal Portfolio Website',
     type: 'Web Development',
+    category: 'Web Development',
     tags: ['Next.js', 'Tailwind', 'Vercel'],
     summary:
       'This site — a responsive portfolio designed and built with Next.js, Tailwind CSS, and Framer Motion, deployed on Vercel. Front-end framework usage and production deployment, end to end.',
@@ -73,4 +79,11 @@ export const projects = [
     github: 'https://github.com/rafflesia-khan/nafiul-Khan-Profile',
     featured: false,
   },
+]
+
+export const projectCategories = [
+  'AI Image Generation',
+  'AI Content Creation',
+  'Web Development',
+  'Video & YouTube',
 ]

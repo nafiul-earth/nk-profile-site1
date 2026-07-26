@@ -28,7 +28,7 @@ const ArrowLink = ({ href }) => (
   </Link>
 )
 
-const ProjectCard = ({ project, wide = false }) => {
+const ProjectCard = ({ project, wide = false, priority = false }) => {
   const externalProps = project.link.startsWith('/')
     ? {}
     : { target: '_blank', rel: 'noopener noreferrer' }
@@ -48,6 +48,7 @@ const ProjectCard = ({ project, wide = false }) => {
           alt={project.title}
           width={1200}
           height={720}
+          priority={priority}
           className='w-full h-auto object-cover'
           whileHover={{ scale: 1.05 }}
           transition={{ duration: 0.3 }}
