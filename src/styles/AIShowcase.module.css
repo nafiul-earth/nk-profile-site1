@@ -247,7 +247,13 @@
 .format_tall,
 .format_feature { --card-ratio: 16 / 10; }
 .projectVisual { position: relative; width: 100%; aspect-ratio: var(--card-ratio); overflow: hidden; background: #17140f; }
-.media { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform 600ms cubic-bezier(0.2, 0.8, 0.2, 1); }
+.media { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; object-fit: cover; transition: transform 600ms cubic-bezier(0.2, 0.8, 0.2, 1); }
+.youtubePoster { display: block; background-position: center; background-size: cover; }
+.videoPlayIndicator { position: absolute; z-index: 3; inset: 0; display: grid; place-items: center; pointer-events: none; }
+.videoPlayIndicator::before { content: ''; grid-area: 1 / 1; width: clamp(52px, 6vw, 72px); aspect-ratio: 1; border: 1px solid rgba(255, 255, 255, 0.72); border-radius: 50%; background: rgba(12, 12, 13, 0.68); box-shadow: 0 12px 36px rgba(0, 0, 0, 0.28); backdrop-filter: blur(8px); transition: transform 180ms ease, background-color 180ms ease; }
+.videoPlayIcon { z-index: 1; grid-area: 1 / 1; width: 0; height: 0; margin-left: 4px; border-top: 7px solid transparent; border-bottom: 7px solid transparent; border-left: 11px solid #fff; }
+.projectCard:hover .videoPlayIndicator::before,
+.railCard:hover .videoPlayIndicator::before { transform: scale(1.08); background: rgba(12, 12, 13, 0.82); }
 .updateWatermark { position: absolute; z-index: 4; inset: 0; display: grid; place-items: center; pointer-events: none; }
 .updateWatermark span { padding: 10px 15px; border: 1px solid rgba(248, 200, 34, 0.75); border-radius: 999px; background: rgba(23, 20, 15, 0.86); color: #f8c822; box-shadow: 0 10px 30px rgba(23, 20, 15, 0.22); font-size: clamp(9px, 1vw, 12px); font-weight: 800; letter-spacing: 0.12em; line-height: 1; text-transform: uppercase; transform: rotate(-7deg); backdrop-filter: blur(6px); }
 .projectCard:hover .media,
@@ -342,6 +348,8 @@
 .projectDetails div { display: grid; grid-template-columns: 92px 1fr; gap: 18px; padding: 16px 0; border-bottom: 1px solid var(--showcase-line); font-size: 12px; line-height: 1.45; }
 .projectDetails dt { color: var(--showcase-ink-faint); font-size: 9px; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; }
 .projectDetails dd { margin: 0; }
+.lightboxExternalLink { display: inline-flex; align-items: center; gap: 10px; margin-top: 24px; padding: 11px 16px; border: 1px solid var(--showcase-line-strong); border-radius: 999px; color: var(--showcase-ink); font-size: 11px; font-weight: 800; letter-spacing: 0.06em; text-decoration: none; text-transform: uppercase; transition: border-color 180ms ease, background-color 180ms ease; }
+.lightboxExternalLink:hover { border-color: var(--showcase-accent); background: rgba(255, 197, 24, 0.08); }
 
 @media (max-width: 1000px) {
   .heroOrbit3 { left: 10%; top: 20%; opacity: 0.65; }

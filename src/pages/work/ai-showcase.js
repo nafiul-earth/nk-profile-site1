@@ -25,21 +25,17 @@ const allProjects = TAB_ORDER.flatMap((key) => {
 })
 
 function UGCPanel({ data, onOpen }) {
-  const variations = [
-    { ...data.items[4], title: 'Pain hook', category: 'Variation 01', hook: 'Your moisturizer might be making this worse.' },
-    { ...data.items[4], title: 'Curiosity hook', category: 'Variation 02', hook: 'I did not expect a $25 serum to replace my routine.', media: data.items[1].media },
-    { ...data.items[4], title: 'Contrarian hook', category: 'Variation 03', hook: 'Stop layering products before you try this.', media: data.items[2].media },
-  ]
+  const [verticalRange, creativeStrategy] = data.collections
 
   return (
     <>
-      <section className={styles.collection} aria-labelledby='creator-campaigns'>
+      <section className={styles.collection} aria-labelledby='vertical-range'>
         <header className={styles.collectionHead}>
-          <h3 id='creator-campaigns'>Creator campaigns</h3>
-          <p>Each tile represents a complete ad concept. Videos remain quiet until opened, where explicit playback controls are available.</p>
+          <h3 id='vertical-range'>{verticalRange.title}</h3>
+          <p>{verticalRange.description}</p>
         </header>
         <div className={styles.phoneGrid}>
-          {data.items.map((project) => (
+          {verticalRange.items.map((project) => (
             <article className={styles.ugcCard} key={project.title}>
               <button type='button' className={styles.phoneFrame} onClick={(event) => onOpen(project, event.currentTarget)} aria-label={`Open ${project.title}`}>
                 <ShowcaseMedia media={project.media} sizes='(max-width: 700px) 50vw, 25vw' />
@@ -52,11 +48,7 @@ function UGCPanel({ data, onOpen }) {
         </div>
       </section>
       <PortfolioCollection
-        collection={{
-          title: 'One product. Multiple reasons to stop.',
-          description: 'Creative iteration shown through pain-led, curiosity-led and comparison-led hooks using one underlying product story.',
-          items: variations,
-        }}
+        collection={creativeStrategy}
         onOpen={onOpen}
         indexed
       />
@@ -101,14 +93,14 @@ function FeaturePanel({ data, type, onOpen }) {
 }
 
 function CharacterPanel({ data, onOpen }) {
-  const maya = data.collections[0].items[0]
+  const featuredCharacter = data.collections[0].items[0]
   return (
     <>
       <section className={styles.characterFeature}>
-        <button type='button' className={styles.characterSheet} onClick={(event) => onOpen(maya, event.currentTarget)} aria-label={`Open ${maya.title}`}>
-          <ShowcaseMedia media={maya.media} sizes='70vw' />
-          <span className={styles.characterLabel}>Character turnaround / 01</span>
-          <span className={styles.characterFooter}><span>Maya</span><span>Front · side · back · ¾</span></span>
+        <button type='button' className={styles.characterSheet} onClick={(event) => onOpen(featuredCharacter, event.currentTarget)} aria-label={`Open ${featuredCharacter.title}`}>
+          <ShowcaseMedia media={featuredCharacter.media} sizes='70vw' />
+          <span className={styles.characterLabel}>Featured character system / 01</span>
+          <span className={styles.characterFooter}><span>{featuredCharacter.title}</span><span>Hero · turnaround · expressions · scene</span></span>
         </button>
         <div className={styles.characterNote}>
           <span className={styles.characterNumber}>01</span>
@@ -125,7 +117,7 @@ function VideoPanel({ data, onOpen }) {
   return (
     <>
       <button type='button' className={styles.showreel} onClick={(event) => onOpen(data.feature, event.currentTarget)} aria-label={`Open ${data.feature.title}`}>
-        <ShowcaseMedia media={data.feature.media} sizes='100vw' />
+        <ShowcaseMedia media={data.feature.media} sizes='100vw' showPlayIndicator={false} />
         <span className={styles.showreelOverlay}>
           <span className={styles.playDisc}>Play reel</span>
           <span className={styles.showreelCopy}><small>Play selected reel</small><strong>{data.feature.title}</strong></span>

@@ -119,6 +119,16 @@ export default function ProjectLightbox({ selection, onClose }) {
                   </>
                 )}
               </dl>
+              {project.externalLink && (
+                <a
+                  className={styles.lightboxExternalLink}
+                  href={project.externalLink.url}
+                  target='_blank'
+                  rel='noreferrer'
+                >
+                  {project.externalLink.label}<span aria-hidden='true'>↗</span>
+                </a>
+              )}
             </div>
           </article>
         </div>
