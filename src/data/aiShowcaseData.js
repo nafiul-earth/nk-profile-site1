@@ -4,7 +4,7 @@
 /** @typedef {'portrait' | 'square' | 'wide' | 'tall' | 'feature'} ProjectFormat */
 /** @typedef {'needs-update' | 'approved'} MediaReviewStatus */
 /** @typedef {{ kind: MediaKind, src: string, alt: string, poster?: string, reviewStatus: MediaReviewStatus }} ShowcaseMedia */
-/** @typedef {{ title: string, category: string, format: ProjectFormat, description: string, output: string, role: string, tools: string, status: string, hook: string, media: ShowcaseMedia }} ShowcaseProject */
+/** @typedef {{ title: string, category: string, format: ProjectFormat, description: string, output: string, role: string, tools: string, status: string, hook: string, media: ShowcaseMedia, mediaGallery?: ShowcaseMedia[] }} ShowcaseProject */
 /** @typedef {{ title: string, description: string, items: ShowcaseProject[] }} ShowcaseCollection */
 /** @typedef {{ label: string, kicker: string, title: string, description: string, items?: ShowcaseProject[], feature?: ShowcaseProject, collections?: ShowcaseCollection[] }} ShowcaseDiscipline */
 
@@ -40,7 +40,18 @@ const projectImages = [
 
 /** Add a verified project title or hero label here to remove only its watermark. */
 /** @type {string[]} */
-export const APPROVED_SHOWCASE_MEDIA = []
+export const APPROVED_SHOWCASE_MEDIA = [
+  'After Hours',
+  'Soft Authority',
+  'Garden Motion',
+  'Quiet Luxury',
+  'One Face / Five Worlds',
+  'Rose Signal',
+  'Daily Ritual',
+  'Mineral Light',
+  'Cold Current',
+  'Object Study 01',
+]
 
 const reviewStatusFor = (label) => (
   APPROVED_SHOWCASE_MEDIA.includes(label) ? 'approved' : 'needs-update'
@@ -69,9 +80,11 @@ const project = (
   status = 'Self-initiated concept',
   hook = '',
   mediaOverride,
+  mediaGallery,
 ) => {
   const src = projectImages[mediaIndex % projectImages.length]
   mediaIndex += 1
+  const reviewStatus = reviewStatusFor(title)
   return {
     title,
     category,
@@ -83,8 +96,11 @@ const project = (
     status,
     hook,
     media: mediaOverride
-      ? { ...mediaOverride, reviewStatus: reviewStatusFor(title) }
-      : { kind: 'image', src, alt: `${title} project preview`, reviewStatus: reviewStatusFor(title) },
+      ? { ...mediaOverride, reviewStatus }
+      : { kind: 'image', src, alt: `${title} project preview`, reviewStatus },
+    ...(mediaGallery?.length
+      ? { mediaGallery: mediaGallery.map((media) => ({ ...media, reviewStatus })) }
+      : {}),
   }
 }
 
@@ -98,6 +114,78 @@ const campaignVideo = {
 
 const image = (src, alt) => ({ kind: 'image', src, alt, reviewStatus: 'needs-update' })
 
+const photorealEditorialGallery = [
+  image('/images/showcase/01-ai-images/photoreal-editorial/01-editorial-portrait-after-hours/rain-streaked glass.png', 'Editorial portrait behind rain-streaked glass at night'),
+  image('/images/showcase/01-ai-images/photoreal-editorial/01-editorial-portrait-after-hours/photoreal-editorial.png', 'Editorial nighttime portrait series in warm street lighting'),
+  image('/images/showcase/01-ai-images/photoreal-editorial/01-editorial-portrait-after-hours/One Subject, Six Lights.png', 'One portrait subject photographed with six distinct lighting setups'),
+]
+
+const softAuthorityGallery = [
+  image('/images/showcase/01-ai-images/photoreal-editorial/02-fashion-campaign-soft-authority/fasion-show.png', 'Fashion model in a white suit walking a luxury runway'),
+  image('/images/showcase/01-ai-images/photoreal-editorial/02-fashion-campaign-soft-authority/bold graphic studio.png', 'Black and white fashion portrait against a bold yellow studio background'),
+  image('/images/showcase/01-ai-images/photoreal-editorial/02-fashion-campaign-soft-authority/brend-watch-model.png', 'Luxury watch campaign portrait in a dark editorial setting'),
+  image('/images/showcase/01-ai-images/photoreal-editorial/02-fashion-campaign-soft-authority/brand watch.png', 'Luxury watch advertising system adapted across social media formats'),
+]
+
+const gardenMotionGallery = [
+  image('/images/showcase/01-ai-images/photoreal-editorial/03-lifestyle-realism-garden-motion/woman-in-garden.png', 'Lifestyle portrait of a woman relaxing on a garden bench'),
+  image('/images/showcase/01-ai-images/photoreal-editorial/03-lifestyle-realism-garden-motion/woman-having coffee.png', 'Sunlit lifestyle scene of a woman having coffee at home with her cat'),
+  image('/images/showcase/01-ai-images/photoreal-editorial/03-lifestyle-realism-garden-motion/woman-in-reading.png', 'Natural lifestyle scene of a woman writing beside her laptop at home'),
+  image('/images/showcase/01-ai-images/photoreal-editorial/03-lifestyle-realism-garden-motion/woman-in-studio.png', 'Editorial studio portrait using a focused beam of light'),
+]
+
+const quietLuxuryGallery = [
+  image('/images/showcase/01-ai-images/photoreal-editorial/04-editorial-fashion-quiet-luxury/openart-gpt-image-2-edit-1_1785446559736_f9bd3793.png', 'Luxury evening shoes presented on gold satin'),
+  image('/images/showcase/01-ai-images/photoreal-editorial/04-editorial-fashion-quiet-luxury/openart-gpt-image-2-edit-1_1785446245199_2bef2dd9.png', 'Coastal luxury fashion portrait beside a sports car at golden hour'),
+  image('/images/showcase/01-ai-images/photoreal-editorial/04-editorial-fashion-quiet-luxury/openart-gpt-image-2-edit-1_1785446370871_cfb0e94d.png', 'Luxury diamond jewelry campaign in warm editorial lighting'),
+]
+
+const oneFaceFiveWorldsGallery = [
+  image('/images/showcase/01-ai-images/photoreal-editorial/05-character-consistency-one-face-five-worlds/character-cv.png', 'Character profile combining professional, personal and athletic identities'),
+  image('/images/showcase/01-ai-images/photoreal-editorial/05-character-consistency-one-face-five-worlds/character-sheet.png', 'Consistent character reference sheet with poses, expressions and workplace scenes'),
+  image('/images/showcase/01-ai-images/photoreal-editorial/05-character-consistency-one-face-five-worlds/character-selling-serum.png', 'Consistent character presenting a skincare serum campaign'),
+  image('/images/showcase/01-ai-images/photoreal-editorial/05-character-consistency-one-face-five-worlds/character-with-brand.png', 'Consistent character adapted for an athletic brand campaign'),
+]
+
+const roseSignalGallery = [
+  image('/images/showcase/01-ai-images/product-advertising/01-fragrance-campaign-rose-signal/ChatGPT Image Jul 30, 2026, 11_28_43 PM.png', 'Rosewood fragrance bottle against a deep rose studio background'),
+  image('/images/showcase/01-ai-images/product-advertising/01-fragrance-campaign-rose-signal/ChatGPT Image Jul 30, 2026, 11_28_47 PM.png', 'Rosewood fragrance surrounded by rose, wood and spice ingredients'),
+  image('/images/showcase/01-ai-images/product-advertising/01-fragrance-campaign-rose-signal/ChatGPT Image Jul 30, 2026, 11_34_35 PM.png', 'Lifestyle portrait presenting the Rosewood fragrance collection'),
+  image('/images/showcase/01-ai-images/product-advertising/01-fragrance-campaign-rose-signal/ChatGPT Image Jul 30, 2026, 11_37_09 PM.png', 'Rosewood fragrance campaign poster with layered natural ingredients'),
+  image('/images/showcase/01-ai-images/product-advertising/01-fragrance-campaign-rose-signal/openart-gpt-image-2-edit-1_1785450264348_c5130b8e.png', 'Rosewood fragrance collection photographed in a desert setting'),
+]
+
+const dailyRitualGallery = [
+  image('/images/showcase/01-ai-images/product-advertising/02-skincare-system-daily-ritual/cover.jpg', 'Kiwi retinol serum campaign portrait'),
+  image('/images/showcase/01-ai-images/product-advertising/02-skincare-system-daily-ritual/image11.jpg', 'Creator-style Kiwi serum image in a bathroom setting'),
+  image('/images/showcase/01-ai-images/product-advertising/02-skincare-system-daily-ritual/image12.jpg', 'Kiwi retinol serum social advertisement with fruit and water'),
+  image('/images/showcase/01-ai-images/product-advertising/02-skincare-system-daily-ritual/image4.jpg', 'Kiwi skincare packaging and brand asset system'),
+  image('/images/showcase/01-ai-images/product-advertising/02-skincare-system-daily-ritual/image9.jpg', 'Kiwi serum launch-offer advertisement'),
+]
+
+const mineralLightGallery = [
+  image('/images/showcase/01-ai-images/product-advertising/03-jewelry-editorial-mineral-light/openart-gpt-image-2-edit-1_1785450917746_d4ba9a6c.png', 'Diamond necklace, ring and bracelet campaign in warm editorial light'),
+  image('/images/showcase/01-ai-images/product-advertising/03-jewelry-editorial-mineral-light/openart-gpt-image-2-1_1785450816608_7cd228e9.png', 'Emerald necklace commercial storyboard'),
+  image('/images/showcase/01-ai-images/product-advertising/03-jewelry-editorial-mineral-light/openart-gpt-image-2-edit-1_1785451068784_199c3333.png', 'Emerald and diamond necklace presented in a velvet case'),
+  image('/images/showcase/01-ai-images/product-advertising/03-jewelry-editorial-mineral-light/openart-gpt-image-2-edit-1_1785451290111_19528c7b.png', 'Editorial portrait wearing an emerald statement necklace'),
+]
+
+const coldCurrentGallery = [
+  image('/images/showcase/01-ai-images/product-advertising/04-beverage-campaign-cold-current/openart-gpt-image-2-1_1785452952944_0d4f5082.png', 'Cold mango beverage campaign with condensation and motion'),
+  image('/images/showcase/01-ai-images/product-advertising/04-beverage-campaign-cold-current/openart-gpt-image-2-1_1785453053113_5a4229ed.png', 'Mango beverage brand identity and packaging system'),
+  image('/images/showcase/01-ai-images/product-advertising/04-beverage-campaign-cold-current/openart-gpt-image-2-1_1785453061750_07f5be9e.png', 'Blackberry fruit wine campaign image system'),
+  image('/images/showcase/01-ai-images/product-advertising/04-beverage-campaign-cold-current/openart-gpt-image-2-1_1785453081121_806bad00.png', 'Blue porcelain-inspired coffee brand campaign system'),
+  image('/images/showcase/01-ai-images/product-advertising/04-beverage-campaign-cold-current/openart-gpt-image-2-1_1785453081818_88f5b016.png', 'Dramatic restaurant burger advertisement'),
+]
+
+const objectStudyGallery = [
+  image('/images/showcase/01-ai-images/product-advertising/05-product-exploration-object-study-01/openart-gpt-image-2-1_1785453204257_04c8a32a.png', 'Minimal black headphone study with controlled geometric shadow'),
+  image('/images/showcase/01-ai-images/product-advertising/05-product-exploration-object-study-01/openart-gpt-image-2-1_1785453270680_1412ca0c.png', 'Front-facing headphone material and form study'),
+  image('/images/showcase/01-ai-images/product-advertising/05-product-exploration-object-study-01/openart-gpt-image-2-1_1785453293032_5b027efe.png', 'Headphone study using strong directional light and negative space'),
+  image('/images/showcase/01-ai-images/product-advertising/05-product-exploration-object-study-01/openart-gpt-image-2-edit-1_1785453506868_fe0a4499.png', 'Lifestyle headphone campaign in a sculptural studio environment'),
+  image('/images/showcase/01-ai-images/product-advertising/05-product-exploration-object-study-01/openart-gpt-image-2-edit-1_1785453523400_2bd3c9a8.png', 'Conceptual headphone campaign featuring an arctic wolf'),
+]
+
 /** @type {Record<string, ShowcaseDiscipline>} */
 export const PORTFOLIO_DATA = {
   images: {
@@ -110,22 +198,22 @@ export const PORTFOLIO_DATA = {
         title: 'Photoreal & Editorial',
         description: 'Human-centered imagery with controlled lighting, wardrobe, environment and camera language for lifestyle, editorial and campaign use.',
         items: [
-          project('After Hours', 'Editorial portrait', 'portrait', 'A restrained nighttime portrait series exploring natural skin, lived-in environments and directional light.', '4:5 stills', 'Creative direction, prompt system, retouching', 'GPT Image, Nano Banana, Photoshop', 'Self-initiated concept', '', image('/images/profile/developer-pic-11.png', 'Editorial portrait project preview')),
-          project('Soft Authority', 'Fashion campaign', 'wide', 'A modern leadership portrait campaign balancing professional credibility with cinematic art direction.', '16:9 and 4:5', 'Art direction and visual consistency', 'GPT Image, OpenArt, Photoshop', 'Self-initiated concept', '', image('/images/profile/developer-pic-12.png', 'Fashion campaign portrait preview')),
-          project('Garden Motion', 'Lifestyle realism', 'square', 'A candid outdoor image system designed around natural movement rather than static model posing.', '1:1 and 4:5', 'Prompt engineering and image finishing', 'Nano Banana, Photoshop', 'Self-initiated concept', '', image('/images/projects/meta-ad-campaign/cover.jpg', 'Lifestyle campaign image preview')),
-          project('Quiet Luxury', 'Editorial fashion', 'tall', 'Luxury fashion studies using simple architecture, restrained palettes and tactile material details.', '3:5 campaign set', 'Visual direction and consistency', 'Midjourney workflow, Photoshop', 'Self-initiated concept', '', image('/images/profile/openart-gpt-image-2-edit-1_1783702765593_76f4a60e.png', 'Editorial fashion image preview')),
-          project('One Face / Five Worlds', 'Character consistency', 'feature', 'The same AI persona maintained across distinct locations, outfits and lighting conditions.', 'Multi-scene image set', 'Identity consistency system', 'OpenArt, reference prompting, Photoshop', 'Self-initiated concept', '', image('/images/projects/meta-ad-campaign/image7.jpg', 'Consistent AI persona campaign preview')),
+          project('After Hours', 'Editorial portrait', 'portrait', 'A restrained nighttime portrait series exploring natural skin, lived-in environments and directional light.', '4:5 stills', 'Creative direction, prompt system, retouching', 'GPT Image, Nano Banana, Photoshop', 'Self-initiated concept', '', photorealEditorialGallery[0], photorealEditorialGallery),
+          project('Soft Authority', 'Fashion campaign', 'wide', 'A modern leadership portrait campaign balancing professional credibility with cinematic art direction.', '16:9 and 4:5', 'Art direction and visual consistency', 'GPT Image, OpenArt, Photoshop', 'Self-initiated concept', '', softAuthorityGallery[0], softAuthorityGallery),
+          project('Garden Motion', 'Lifestyle realism', 'square', 'A candid outdoor image system designed around natural movement rather than static model posing.', '1:1 and 4:5', 'Prompt engineering and image finishing', 'Nano Banana, Photoshop', 'Self-initiated concept', '', gardenMotionGallery[0], gardenMotionGallery),
+          project('Quiet Luxury', 'Editorial fashion', 'tall', 'Luxury fashion studies using simple architecture, restrained palettes and tactile material details.', '3:5 campaign set', 'Visual direction and consistency', 'Midjourney workflow, Photoshop', 'Self-initiated concept', '', quietLuxuryGallery[0], quietLuxuryGallery),
+          project('One Face / Five Worlds', 'Character consistency', 'feature', 'The same AI persona maintained across distinct locations, outfits and lighting conditions.', 'Multi-scene image set', 'Identity consistency system', 'OpenArt, reference prompting, Photoshop', 'Self-initiated concept', '', oneFaceFiveWorldsGallery[0], oneFaceFiveWorldsGallery),
         ],
       },
       {
         title: 'Product & Advertising',
         description: 'Studio, ingredient, lifestyle and campaign compositions created to make products feel tangible, desirable and brand-specific.',
         items: [
-          project('Rose Signal', 'Fragrance campaign', 'wide', 'A fragrance campaign combining hero product frames, tactile materials and dramatic color blocking.', '16:9 / 4:5 / 9:16', 'Campaign concept and asset system', 'GPT Image, Photoshop, Canva'),
-          project('Daily Ritual', 'Skincare system', 'portrait', 'A clean skincare collection covering packshot, bathroom lifestyle and ingredient-led compositions.', 'E-commerce image set', 'Product composition and editing', 'Nano Banana, Photoshop'),
-          project('Mineral Light', 'Jewelry editorial', 'tall', 'Macro-inspired jewelry frames designed around reflection control, texture and premium visual hierarchy.', '3:5 editorial set', 'Art direction and finishing', 'OpenArt, Photoshop'),
-          project('Cold Current', 'Beverage campaign', 'square', 'A high-energy beverage visual system with condensation, motion and social-first crop variations.', '1:1 / 4:5 social set', 'Creative concept and adaptations', 'GPT Image, Photoshop'),
-          project('Object Study 01', 'Product exploration', 'feature', 'A minimalist product study focused on form, shadow, negative space and material accuracy.', '5:4 key visual', 'Prompt system and visual refinement', 'Nano Banana, Photoshop'),
+          project('Rose Signal', 'Fragrance campaign', 'wide', 'A fragrance campaign combining hero product frames, tactile materials and dramatic color blocking.', '16:9 / 4:5 / 9:16', 'Campaign concept and asset system', 'GPT Image, Photoshop, Canva', 'Self-initiated concept', '', roseSignalGallery[0], roseSignalGallery),
+          project('Daily Ritual', 'Skincare system', 'portrait', 'A clean skincare collection covering packshot, bathroom lifestyle and ingredient-led compositions.', 'E-commerce image set', 'Product composition and editing', 'Nano Banana, Photoshop', 'Self-initiated concept', '', dailyRitualGallery[0], dailyRitualGallery),
+          project('Mineral Light', 'Jewelry editorial', 'tall', 'Macro-inspired jewelry frames designed around reflection control, texture and premium visual hierarchy.', '3:5 editorial set', 'Art direction and finishing', 'OpenArt, Photoshop', 'Self-initiated concept', '', mineralLightGallery[0], mineralLightGallery),
+          project('Cold Current', 'Beverage campaign', 'square', 'A high-energy beverage visual system with condensation, motion and social-first crop variations.', '1:1 / 4:5 social set', 'Creative concept and adaptations', 'GPT Image, Photoshop', 'Self-initiated concept', '', coldCurrentGallery[0], coldCurrentGallery),
+          project('Object Study 01', 'Product exploration', 'feature', 'A minimalist product study focused on form, shadow, negative space and material accuracy.', '5:4 key visual', 'Prompt system and visual refinement', 'Nano Banana, Photoshop', 'Self-initiated concept', '', objectStudyGallery[0], objectStudyGallery),
         ],
       },
       {
